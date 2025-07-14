@@ -520,7 +520,6 @@ La solución propuesta responde a los requerimientos funcionales y no funcionale
 
 ## 🔹 **8. Historias de Usuario con Funciones Definidas por el Usuario (UDF)**
 
-```
 1. Como analista, quiero una función que calcule el **promedio ponderado de calidad** de un producto basado en sus calificaciones y fecha de evaluación.
    > **Explicación:** Se desea una función `calcular_promedio_ponderado(product_id)` que combine el valor de `rate` y la antigüedad de cada calificación para dar más peso a calificaciones recientes.
 2. Como auditor, deseo una función que determine si un producto ha sido **calificado recientemente** (últimos 30 días).
@@ -555,7 +554,6 @@ La solución propuesta responde a los requerimientos funcionales y no funcionale
 18. Como gestor de calidad, deseo una función que evalúe si un producto debe ser **desactivado** por tener baja calificación histórica.
 19. Como desarrollador, quiero una función que calcule el **índice de popularidad** de un producto (combinando favoritos y ratings).
 20. Como auditor, deseo una función que genere un código único basado en el nombre del producto y su fecha de creación.
-```
 
 ## ✅ Consideraciones:
 
