@@ -3,8 +3,11 @@
 
 ## 📌 Importante:
 En el siguiente proyecto encontrara diferentes markdown donde en cada uno de ellos encontraras la siguiente informacion:
+```
 -> Informacion general del proyecto (En el presente markdown).
+```
 ## **Solución del proyecto:**
+```
 -> Creacion de base de datos.
 -> Historas de usuario:
   --> Consultas SQL Especializadas.
@@ -15,7 +18,7 @@ En el siguiente proyecto encontrara diferentes markdown donde en cada uno de ell
   --> Events (Eventos programados.. Usar procedimientos o funciones para cada evento).
 -> Historias de usuario con JOINs.
 -> Historias de usuario con funciones Definidas por el Usuario (UDF).
-
+```
 ## Requerimientos de entrega
 1. Instrucciones DDL con la creacion de la estructura completa de la base de datos.
 2. Instrucciones INSERT para cada una de las tablas.
