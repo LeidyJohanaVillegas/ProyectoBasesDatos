@@ -1,12 +1,12 @@
 # **BASES DE DATOS**
 **TABLAS Y DATOS SUGERIDOS**
 
-#### **Tablas**
+## **Tablas**
 
 CREATE DATABASE cross_platform;
 USE cross_platform;
 
-###### - 1 Tabla countries.
+### - 1 Tabla countries.
 
 CREATE TABLE IF NOT EXISTS countries (
   isocode VARCHAR(6) PRIMARY KEY,
@@ -15,14 +15,14 @@ CREATE TABLE IF NOT EXISTS countries (
   alfaisothree VARCHAR(4) UNIQUE
 ) ENGINE = INNODB;
 
-###### - 2 Tabla subdivisioncategories.
+### - 2 Tabla subdivisioncategories.
 
 CREATE TABLE IF NOT EXISTS subdivisioncategories (
   id INT(11) AUTO_INCREMENT PRIMARY KEY,
   description VARCHAR(40) UNIQUE
 ) ENGINE = INNODB;
 
-###### - 3 Tabla stateorregions.
+### - 3 Tabla stateorregions.
 
 CREATE TABLE IF NOT EXISTS stateorregions (
   code VARCHAR(6) PRIMARY KEY,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS stateorregions (
   FOREIGN KEY (subdivision_id) REFERENCES subdivisioncategories(id)
 ) ENGINE = INNODB;
 
-###### - 4 Tabla citiesormunicipalities.
+### - 4 Tabla citiesormunicipalities.
 
 CREATE TABLE IF NOT EXISTS citiesormunicipalities ( 
   code VARCHAR(6) PRIMARY KEY,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS citiesormunicipalities (
   FOREIGN KEY (statereg_id ) REFERENCES stateorregions(code)
 ) ENGINE = INNODB;
 
-###### - 5 Tabla typesidentifications.
+### - 5 Tabla typesidentifications.
 
 CREATE TABLE IF NOT EXISTS typesidentifications (
   id INT(11) PRIMARY KEY,
@@ -51,14 +51,14 @@ CREATE TABLE IF NOT EXISTS typesidentifications (
   sufix VARCHAR(5)
 ) ENGINE = INNODB;
 
-###### - 6 Tabla categories.
+### - 6 Tabla categories.
 
 CREATE TABLE IF NOT EXISTS categories (
   id INT(11) PRIMARY KEY,
   description VARCHAR(60) UNIQUE
 ) ENGINE = INNODB;
 
-###### - 7 Tabla memberships.
+### - 7 Tabla memberships.
 
 CREATE TABLE IF NOT EXISTS memberships (
   id INT(11) PRIMARY KEY,
@@ -66,14 +66,14 @@ CREATE TABLE IF NOT EXISTS memberships (
   description TEXT
 ) ENGINE = INNODB;
 
-###### - 8 Tabla periods.
+### - 8 Tabla periods.
 
 CREATE TABLE IF NOT EXISTS periods (
   id INT(11) PRIMARY KEY,
   name VARCHAR(50) UNIQUE
 ) ENGINE = INNODB;
 
-###### - 9 Tabla benefits.
+### - 9 Tabla benefits.
 
 CREATE TABLE IF NOT EXISTS benefits (
   id INT(11) PRIMARY KEY,
@@ -81,21 +81,21 @@ CREATE TABLE IF NOT EXISTS benefits (
   details TEXT
 ) ENGINE = INNODB;
 
-###### - 10 Tabla unitofmeasure.
+### - 10 Tabla unitofmeasure.
 
 CREATE TABLE IF NOT EXISTS unitofmeasure (
   id INT(11) PRIMARY KEY,
   description VARCHAR(60) UNIQUE
 ) ENGINE = INNODB;
 
-###### - 11 Tabla categories_polls.
+### - 11 Tabla categories_polls.
 
 CREATE TABLE IF NOT EXISTS categories_polls (
   id INT(11) PRIMARY KEY,
   name VARCHAR(80) UNIQUE
 ) ENGINE = INNODB;
 
-###### - 12 Tabla polls.
+### - 12 Tabla polls.
 
 CREATE TABLE IF NOT EXISTS polls (
   id INT(11) PRIMARY KEY,
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS polls (
   FOREIGN KEY (categorypoll_id) REFERENCES categories_polls(id)
 ) ENGINE = INNODB;
 
-###### - 13 Tabla products.
+### - 13 Tabla products.
 
 CREATE TABLE IF NOT EXISTS products (
   id INT(11) PRIMARY KEY,
@@ -118,14 +118,14 @@ CREATE TABLE IF NOT EXISTS products (
   FOREIGN KEY (category_id) REFERENCES categories(id)
 ) ENGINE = INNODB;
 
-###### - 14 Tabla audiences.
+### - 14 Tabla audiences.
 
 CREATE TABLE IF NOT EXISTS audiences (
   id INT(11) PRIMARY KEY,
   description VARCHAR(60)
 ) ENGINE = INNODB;
 
-###### - 15 Tabla customers.
+### - 15 Tabla customers.
 
 CREATE TABLE IF NOT EXISTS customers (
   id INT(11) PRIMARY KEY,
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS customers (
   FOREIGN KEY (audience_id) REFERENCES audiences(id)
 ) ENGINE = INNODB;
 
-###### - 16 Tabla companies.
+### - 16 Tabla companies.
 
 CREATE TABLE IF NOT EXISTS companies (
   id VARCHAR(20) PRIMARY KEY,
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS companies (
   FOREIGN KEY (audience_id) REFERENCES audiences(id)
 ) ENGINE = INNODB;
 
-###### - 17 Tabla audiencebenefits.
+### - 17 Tabla audiencebenefits.
 
 CREATE TABLE IF NOT EXISTS audiencebenefits(
   audience_id INT(11),
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS audiencebenefits(
   FOREIGN KEY (benefit_id) REFERENCES benefits(id)
 ) ENGINE = INNODB;
 
-###### - 18 Tabla membershipperiods.
+### - 18 Tabla membershipperiods.
 
 CREATE TABLE membershipperiods (
   membership_id INT(11),
@@ -177,7 +177,7 @@ CREATE TABLE membershipperiods (
   FOREIGN KEY (period_id) REFERENCES periods(id)
 ) ENGINE = INNODB;
 
-###### - 19 Tabla favorites.
+### - 19 Tabla favorites.
 
 CREATE TABLE IF NOT EXISTS favorites (
   id INT(11) PRIMARY KEY,
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS favorites (
   FOREIGN KEY (company_id) REFERENCES companies(id)
 ) ENGINE = INNODB;
 
-###### - 20 Tabla companyproducts.
+### - 20 Tabla companyproducts.
 
 CREATE TABLE companyproducts (
   company_id VARCHAR(20),
@@ -200,7 +200,7 @@ CREATE TABLE companyproducts (
   FOREIGN KEY (unitmeasure_id) REFERENCES unitofmeasure(id)
 ) ENGINE = INNODB;
 
-###### - 21 Tabla detalis_favorites.
+### - 21 Tabla detalis_favorites.
 
 CREATE TABLE IF NOT EXISTS details_favorites(
   id INT(11) PRIMARY KEY,
@@ -210,7 +210,7 @@ CREATE TABLE IF NOT EXISTS details_favorites(
   FOREIGN KEY (product_id) REFERENCES products(id)
 ) ENGINE = INNODB;
 
-###### - 22 Tabla rates.
+### - 22 Tabla rates.
 
 CREATE TABLE rates (
   customer_id INT(11),
@@ -224,7 +224,7 @@ CREATE TABLE rates (
   FOREIGN KEY (poll_id) REFERENCES polls(id)
 );
 
-###### - 23 Tabla quality_products.
+### - 23 Tabla quality_products.
 
 CREATE TABLE quality_products (
   product_id INT(11),
@@ -240,7 +240,7 @@ CREATE TABLE quality_products (
   FOREIGN KEY (company_id) REFERENCES companies(id)
 ) ENGINE = INNODB;
 
-###### - 24 Tabla membershipbenefits.
+### - 24 Tabla membershipbenefits.
 
 CREATE TABLE membershipbenefits (
   membership_id INT(11),
@@ -254,15 +254,11 @@ CREATE TABLE membershipbenefits (
   FOREIGN KEY (benefit_id) REFERENCES benefits(id)
 ) ENGINE = INNODB; 
 
-#### - Tablas adicionales
-
-###### - 25 Tabla 
 
 
+## DATOS SUGERIDOS.
 
-#### DATOS SUGERIDOS.
-
-###### Countries
+### Countries
 
 INSERT INTO countries (isocode, name, alfaisotwo, alfaisothree) VALUES
 ('AF', 'Afganistán', 'AF', 'AFG'),
@@ -481,7 +477,7 @@ INSERT INTO countries (isocode, name, alfaisotwo, alfaisothree) VALUES
 ('ZM', 'Zambia', 'ZM', 'ZMB'),
 ('ZW', 'Zimbabue', 'ZW', 'ZWE');
 
-###### subdivisioncategories
+### subdivisioncategories
 
 INSERT INTO subdivisioncategories(id, description) VALUES
 (1, 'Department'),
@@ -489,7 +485,7 @@ INSERT INTO subdivisioncategories(id, description) VALUES
 (3, 'state'),
 (4, 'outliying area');
 
-###### stateorregions
+### stateorregions
 
 INSERT INTO stateorregions (code, name, country_id, code3166, subdivision_id) VALUES
 ('DC', 'Distrito Capital de Bogotá', 'CO', 'CO-DC', 1),
@@ -526,7 +522,7 @@ INSERT INTO stateorregions (code, name, country_id, code3166, subdivision_id) VA
 ('VAU', 'Vaupés', 'CO', 'CO-VAU', 1),
 ('VID', 'Vichada', 'CO', 'CO-VID', 1);
 
-###### citiesormunicipalities
+### citiesormunicipalities
 
 -- Municipios y Ciudades:
 -- Atlántico (cod: 08).
@@ -1588,7 +1584,7 @@ INSERT INTO typesidentifications (id, description, sufix) VALUES
 (29, 'Documento de Afiliación', '-29'),
 (30, 'ID Corporativo', '-30');
 
-###### categories
+### categories
 
 INSERT INTO categories (id, description) VALUES
 (1, 'Tecnología'),
@@ -1622,7 +1618,7 @@ INSERT INTO categories (id, description) VALUES
 (29, 'Moda Infantil'),
 (30, 'Seguridad y Vigilancia');
 
-###### audiences
+### audiences
 
 INSERT INTO audiences (id, description) VALUES
 (1, 'General'),
@@ -1656,10 +1652,9 @@ INSERT INTO audiences (id, description) VALUES
 (29, 'Gobierno'),
 (30, 'Sector Industrial');
 
-###### companies
+### companies
 
 SET FOREIGN_KEY_CHECKS=0;
-
 INSERT INTO companies (id, type_id, name, category_id, city_id, audience_id, cellphone, email) VALUES
 ('900000001', 1, 'TechCorp', 1, '05001', 1, '3001234567', 'contacto@techcorp.com'),
 ('900000002', 2, 'ElectroHome', 2, '05001', 5, '3002345678', 'ventas@electrohome.com'),
@@ -1691,16 +1686,12 @@ INSERT INTO companies (id, type_id, name, category_id, city_id, audience_id, cel
 ('900000028', 2, 'ModaKids', 29, '05001', 9, '3008902001', 'contacto@modakids.com'),
 ('900000029', 3, 'SafeWatch', 30, '05001', 30, '3009013001', 'ventas@safewatch.com'),
 ('900000030', 1, 'GreenEnergy', 25, '05001', 30, '3000124001', 'info@greenenergy.com'),
-
 ('900654321', 1, 'DigitalHouse', 1, '08001', 1, '3010000001', 'ventas@digitalhouse.com'),
-
 ('900987654', 1, 'SmartTech', 1, '08001', 1, '3010000002', 'info@smarttech.com'),
-
 ('900123456', 1, 'Ejemplo S.A.', 1, '08001', 1, '3011111111', 'contacto@ejemplo.com');
-
 SET FOREIGN_KEY_CHECKS=1;
 
-###### products
+### products
 
 INSERT INTO products (id, name, detail, price, category_id, image) VALUES
 (1, 'Laptop XYZ', 'Laptop para trabajo', 2500.00, 1, 'laptop.jpg'),
@@ -1734,7 +1725,7 @@ INSERT INTO products (id, name, detail, price, category_id, image) VALUES
 (29, 'Cámara Digital', 'Cámara profesional con zoom óptico', 600.00, 26, 'camara.jpg'),
 (30, 'Videojuego Acción', 'Juego para consola de acción y aventura', 70.00, 27, 'videojuego.jpg');
 
-###### unitofmeasure
+### unitofmeasure
 
 INSERT INTO unitofmeasure (id, description) VALUES
 (1, 'Unidad'),
@@ -1758,43 +1749,37 @@ INSERT INTO unitofmeasure (id, description) VALUES
 (19, 'Kilómetro'),
 (20, 'Onza');
 
-###### companyproducts
+### companyproducts
 
 SET FOREIGN_KEY_CHECKS=0;
-
 INSERT INTO companyproducts (company_id, product_id, price, unitmeasure_id) VALUES
 ('900123456', 3, 1150.00, 1),  -- Smartphone Alpha
 ('900123456', 4, 330.00, 1),   -- Monitor 24"
 ('900123456', 5, 190.00, 1),   -- Teclado Mecánico
 ('900123456', 6, 170.00, 1),   -- Auriculares Bluetooth
 ('900123456', 7, 580.00, 1),   -- Tablet Z10
-
 ('900654321', 1, 2550.00, 1),  -- Laptop XYZ en otra empresa
 ('900654321', 8, 440.00, 1),   -- Impresora Láser
 ('900654321', 9, 110.00, 1),   -- Cámara Web HD
 ('900654321', 10, 125.00, 1),  -- Router WiFi
 ('900654321', 11, 95.00, 1),   -- Disco Duro Externo
-
 ('900987654', 12, 245.00, 1),  -- Smartwatch S5
 ('900987654', 13, 48.00, 1),   -- Cargador Portátil
 ('900987654', 14, 14.00, 1),   -- Cable HDMI 2m
 ('900987654', 15, 18.00, 1),   -- Mousepad Gamer
 ('900987654', 16, 38.00, 1);   -- Soporte Laptop
-
 SET FOREIGN_KEY_CHECKS=1;
 
-###### catalogs_polls
+### catalogs_polls
 
 INSERT INTO polls (id, name, description, isactive, categorypoll_id) VALUES
-
 (1, 'Encuesta General', 'Satisfacción general del producto', TRUE, 1),
 (2, 'Calidad Técnica', 'Evaluación técnica de productos', TRUE, 1),
-
 (3, 'Valoración Diseño', 'Evalúa el diseño del producto', TRUE, 1),
 (4, 'Comodidad Uso', 'Cuestionario sobre facilidad de uso', TRUE, 1),
 (5, 'Durabilidad', 'Durabilidad en el tiempo', TRUE, 1);
 
-###### customers
+### customers
 
 INSERT INTO customers (id, name, city_id, audience_id, cellphone, email, address) VALUES
 (1, 'Carlos Pérez', '08001', 1, '3111111111', 'carlos@example.com', 'Calle 1 #2-3'),
@@ -1802,22 +1787,19 @@ INSERT INTO customers (id, name, city_id, audience_id, cellphone, email, address
 (3, 'Luis Torres', '08137', 1, '3333333333', 'luis@example.com', 'Calle 7 #8-9'),
 (4, 'María Rivas', '08141', 1, '3444444444', 'maria@example.com', 'Transv 10 #11-12'),
 (5, 'Diego Mendoza', '08296', 1, '3555555555', 'diego@example.com', 'Diagonal 13 #14-15'),
-
 (6, 'Sofía Castillo', '08001', 1, '3666666666', 'sofia@example.com', 'Calle 16 #17-18'),
 (7, 'Andrés Molina', '08078', 1, '3777777777', 'andres@example.com', 'Carrera 19 #20-21'),
 (8, 'Luisa Fernández', '08137', 1, '3888888888', 'luisa@example.com', 'Calle 22 #23-24'),
 (9, 'Pedro López', '08141', 1, '3999999999', 'pedro@example.com', 'Transv 25 #26-27'),
 (10, 'Carolina Reyes', '08296', 1, '3000000003', 'carolina@example.com', 'Diagonal 28 #29-30'),
-
 (11, 'Ana Torres', '08001', 1, '3011111111', 'ana@example.com', 'Calle 1'),
 (12, 'Bruno Díaz', '08078', 1, '3011111112', 'bruno@example.com', 'Calle 2'),
 (13, 'Camila Vélez', '08137', 1, '3011111113', 'camila@example.com', 'Calle 3'),
 (14, 'David Herrera', '08141', 1, '3011111114', 'david@example.com', 'Calle 4'),
 (15, 'Esteban Lara', '08296', 1, '3011111115', 'esteban@example.com', 'Calle 5');
 
-###### favorites 
+### favorites 
 
--- Relación cliente <-> empresa
 INSERT INTO favorites (id, customer_id, company_id) VALUES
 (101, 1, '900000001'),
 (102, 2, '900000001'),
@@ -1857,7 +1839,7 @@ INSERT INTO favorites (id, customer_id, company_id) VALUES
 (26, 115, 'C003'),
 (27, 115, 'C005');
 
-###### details_favorites
+### details_favorites
 
 INSERT INTO details_favorites (id, favorite_id, product_id) VALUES
 (201, 101, 1),
@@ -1887,10 +1869,9 @@ INSERT INTO details_favorites (favorite_id, product_id, category_id) VALUES
 (6, 107, 2),
 (7, 108, 3);
 
-###### quality_products
+### quality_products
 
 INSERT INTO quality_products (product_id, customer_id, poll_id, company_id, daterating, rating) VALUES
-
 (1, 1, 1, '900000001', CURDATE() - INTERVAL 5 DAY, 4.5),
 (2, 1, 1, '900000001', CURDATE() - INTERVAL 3 DAY, 4.7),
 (3, 2, 1, '900000001', CURDATE() - INTERVAL 10 DAY, 4.2),
@@ -1901,7 +1882,6 @@ INSERT INTO quality_products (product_id, customer_id, poll_id, company_id, date
 (8, 4, 2, '900000001', CURDATE() - INTERVAL 35 DAY, 4.3),
 (9, 4, 1, '900000001', CURDATE() - INTERVAL 40 DAY, 4.6),
 (10, 5, 1, '900000001', CURDATE() - INTERVAL 45 DAY, 3.9),
-
 (2, 5, 2, '900000001', CURDATE() - INTERVAL 50 DAY, 4.4),
 (3, 6, 1, '900000001', CURDATE() - INTERVAL 55 DAY, 4.7),
 (4, 7, 2, '900000001', CURDATE() - INTERVAL 60 DAY, 4.2),
@@ -1913,10 +1893,9 @@ INSERT INTO quality_products (product_id, customer_id, poll_id, company_id, date
 (10, 3, 5, '900000001', CURDATE() - INTERVAL 90 DAY, 4.6),
 (1, 4, 1, '900000001', CURDATE() - INTERVAL 95 DAY, 4.3);
 
-###### companyproducts
+### companyproducts
 
 SET FOREIGN_KEY_CHECKS=0;
-
 INSERT INTO companyproducts (company_id, product_id, price, unitmeasure_id) VALUES
 ('C001', 101, 15.99, 1),
 ('C001', 102, 12.50, 2),
@@ -1948,10 +1927,9 @@ INSERT INTO companyproducts (company_id, product_id, price, unitmeasure_id) VALU
 ('C010', 128, 14.99, 1),
 ('C010', 129, 13.50, NULL),
 ('C010', 130, 12.25, 2);
-
 SET FOREIGN_KEY_CHECKS=1;
 
-###### products
+### products
 
 INSERT INTO products (id, name, detail, price, category_id, image) VALUES
 (111, 'Producto 111', 'Descripción producto 111', 9.99, 1, 'prod111.jpg'),
@@ -1975,7 +1953,7 @@ INSERT INTO products (id, name, detail, price, category_id, image) VALUES
 (129, 'Producto 129', 'Producto especial', 12.00, 1, 'prod129.jpg'),
 (130, 'Producto 130', 'Detalle final', 16.10, 2, NULL);
 
-###### benefits
+### benefits
 
 INSERT INTO benefits (id, description) VALUES
 (101, 'Acceso a contenido exclusivo'),
@@ -1983,7 +1961,7 @@ INSERT INTO benefits (id, description) VALUES
 (103, 'Soporte prioritario'),
 (104, 'Invitaciones a webinars');
 
-###### memberships
+### memberships
 
 INSERT INTO memberships (id, name, description) VALUES
 (1, 'Membresía Básica', 'Acceso limitado a contenido y servicios'),
@@ -1991,7 +1969,7 @@ INSERT INTO memberships (id, name, description) VALUES
 (3, 'Membresía VIP', 'Beneficios exclusivos para clientes VIP'),
 (4, 'Membresía Corporativa', 'Planes especiales para empresas');
 
-###### membershipbenefits
+### membershipbenefits
 
 INSERT INTO membershipbenefits (membership_id, period_id, audience_id, benefit_id) VALUES
 (1, 1, 1, 101),
